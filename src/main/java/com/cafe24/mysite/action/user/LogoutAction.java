@@ -7,7 +7,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.cafe24.mysite.vo.UserVo;
 import com.cafe24.web.WebUtil;
 import com.cafe24.web.mvc.Action;
 
@@ -21,7 +20,7 @@ public class LogoutAction implements Action {
 			session.invalidate();
 		}
 		
-		WebUtil.forward(request, response, request.getContextPath());
+		WebUtil.redirect(request, response, request.getContextPath());
 		
 	}
 
