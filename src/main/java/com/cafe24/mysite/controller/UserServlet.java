@@ -1,13 +1,13 @@
 package com.cafe24.mysite.controller;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.cafe24.mysite.action.guestbook.GuestbookActionFactory;
 import com.cafe24.mysite.action.user.UserActionFactory;
 import com.cafe24.web.mvc.Action;
 
