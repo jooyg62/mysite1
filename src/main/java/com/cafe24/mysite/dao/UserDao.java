@@ -10,15 +10,14 @@ import com.cafe24.mysite.vo.UserVo;
 
 public class UserDao {
 	
-	
 	private Connection getConnection() throws SQLException {
 
 		Connection conn = null;
 
 		try {
-			Class.forName("org.mariadb.jdbc.Driver");
+			Class.forName("org.postgresql.Driver");
 
-			String url = "jdbc:mariadb://192.168.1.104:3307/webdb";
+			String url = "jdbc:postgresql://192.168.1.104:5432/webdb";
 			conn = DriverManager.getConnection(url, "webdb", "webdb");
 
 		} catch (ClassNotFoundException e) {
@@ -28,6 +27,24 @@ public class UserDao {
 		return conn;
 
 	}
+	
+//	private Connection getConnection() throws SQLException {
+//
+//		Connection conn = null;
+//
+//		try {
+//			Class.forName("org.mariadb.jdbc.Driver");
+//
+//			String url = "jdbc:mariadb://192.168.1.104:3307/webdb";
+//			conn = DriverManager.getConnection(url, "webdb", "webdb");
+//
+//		} catch (ClassNotFoundException e) {
+//			System.out.println("드라이버 로딩 실패:" + e);
+//		}
+//
+//		return conn;
+//
+//	}
 	
 	public Boolean delete(UserVo vo) {
 		Boolean result = false;
@@ -78,7 +95,7 @@ public class UserDao {
 		try {
 			conn = getConnection();
 
-			String sql = "insert into user values(null, ?, ?, ?, ?, now())";
+			String sql = "insert into user values(default, ?, ?, ?, ?, now())";
 			pstmt = conn.prepareStatement(sql);
 			
 			pstmt.setString(1, vo.getName());
